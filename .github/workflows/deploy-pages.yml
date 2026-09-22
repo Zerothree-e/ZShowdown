@@ -17,8 +17,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
       - run: npm install
       - run: node build
+      - run: rm -rf play.pokemonshowdown.com/config
       - uses: actions/upload-pages-artifact@v3
         with:
           path: play.pokemonshowdown.com
@@ -31,4 +33,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v
